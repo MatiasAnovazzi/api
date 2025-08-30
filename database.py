@@ -2,21 +2,22 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+# Variables de entorno (Railway las inyecta automáticamente)
+MYSQLUSER = os.getenv("MYSQLUSER", "root")
+MYSQLPASSWORD = os.getenv("MYSQLPASSWORD", "holamati")
+MYSQLDATABASE = os.getenv("MYSQLDATABASE", "railway")
 
+# Si corres en local -> usás el host público
+# Si corres en Railway -> usás el host interno
+if os.getenv("RAILWAY_ENVIRONMENT") == "production":
+    MYSQLHOST = os.getenv("MYSQLHOST", "mysql.railway.internal")
+else:
+    MYSQLHOST = "mysql-production-1419.up.railway.app"
+ 
+MYSQLPORT = os.getenv("MYSQLPORT", "3306")
 
+DATABASE_URL = f"mysql+pymysql://{MYSQLUSER}:{MYSQLPASSWORD}@{MYSQLHOST}:{MYSQLPORT}/{MYSQLDATABASE}"
 
-DATABASE_URL = "mysql+pymysql://root:holamati@mysql-production-1419.up.railway.app:3306/railway"
-
-
-print("MYSQLUSER:", os.getenv("MYSQLUSER"))
-print("MYSQLPASSWORD:", os.getenv("MYSQLPASSWORD"))
-print("MYSQLHOST:", os.getenv("MYSQLHOST"))
-print("MYSQLPORT:", os.getenv("MYSQLPORT"))
-print("MYSQLDATABASE:", os.getenv("MYSQLDATABASE"))
-print("DATABASE_URL:", DATABASE_URL)
-
-
-# Crear engine y sesión
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
