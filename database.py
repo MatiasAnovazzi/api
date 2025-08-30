@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 # Obtener las variables de entorno proporcionadas por Railway
 user = os.environ["MYSQLUSER"]                   # Ej: 'root' o 'railway'
 password = os.environ["MYSQL_ROOT_PASSWORD"]    # Contraseña generada por Railway
-host = os.environ["RAILWAY_PRIVATE_DOMAIN"]     # Host interno de la DB
+host = "mysql.railway.internal"     # Host interno de la DB
 port = os.environ.get("MYSQLPORT", 3306)        # Puerto de la DB
 database = os.environ["MYSQL_DATABASE"]          # Nombre de la DB
 
