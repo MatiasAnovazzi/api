@@ -5,10 +5,8 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 
 
-DATABASE_URL = (
-    f"mysql+pymysql://{os.getenv('MYSQLUSER')}:{os.getenv('MYSQLPASSWORD')}"
-    f"@{os.getenv('MYSQLHOST')}:{os.getenv('MYSQLPORT')}/{os.getenv('MYSQLDATABASE')}"
-)
+DATABASE_URL = "mysql+pymysql://root:holamati@mysql-production-1419.up.railway.app:3306/railway"
+
 
 print("MYSQLUSER:", os.getenv("MYSQLUSER"))
 print("MYSQLPASSWORD:", os.getenv("MYSQLPASSWORD"))
