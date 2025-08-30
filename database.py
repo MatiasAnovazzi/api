@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Variables de entorno (Railway las inyecta automáticamente)
 MYSQLUSER = os.getenv("MYSQLUSER", "root")
-MYSQLPASSWORD = os.getenv("MYSQLPASSWORD", "holamati")
+MYSQLPASSWORD = os.getenv("MYSQLPASSWORD", "mati")
 MYSQLDATABASE = os.getenv("MYSQLDATABASE", "railway")
 
 # Si corres en local -> usás el host público
