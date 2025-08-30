@@ -7,7 +7,7 @@ user = os.environ["MYSQLUSER"]                   # Ej: 'root' o 'railway'
 password = os.environ["MYSQL_ROOT_PASSWORD"]    # Contraseña generada por Railway
 host = os.environ["RAILWAY_PRIVATE_DOMAIN"]     # Host interno de la DB
 port = os.environ.get("MYSQLPORT", 3306)        # Puerto de la DB
-database = os.environ["MYSQLDATABASE"]          # Nombre de la DB
+database = os.environ["MYSQL_DATABASE"]          # Nombre de la DB
 
 # Construir la URL de conexión
 DATABASE_URL = f"mysql+pymysql://{user}:{password}@{host}:{port}/{database}"
