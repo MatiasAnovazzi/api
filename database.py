@@ -14,7 +14,7 @@ print("MYSQLUSER:", os.getenv("MYSQLUSER"))
 print("MYSQLPASSWORD:", os.getenv("MYSQLPASSWORD"))
 print("MYSQLHOST:", os.getenv("MYSQLHOST"))
 print("MYSQLPORT:", os.getenv("MYSQLPORT"))
-print("MYSQLDATABASE:", os.getenv("MYSQL_DATABASE"))
+print("MYSQLDATABASE:", os.getenv("MYSQLDATABASE"))
 print("DATABASE_URL:", DATABASE_URL)
 
 
