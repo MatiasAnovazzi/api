@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-
+print("primero")
 print(DATABASE_URL)
 
 if DATABASE_URL and DATABASE_URL.startswith("mysql://"):
