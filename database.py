@@ -12,5 +12,6 @@ if DATABASE_URL and DATABASE_URL.startswith("mysql://"):
 print(DATABASE_URL)
 
 engine = create_engine(DATABASE_URL)
+print("CONECTADO PERRI")
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()

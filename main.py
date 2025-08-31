@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from routers import usuarios, turnos
 from database import Base, engine
