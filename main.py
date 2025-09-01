@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from routers import usuarios, turnos
 from database import Base, engine
 import uvicorn
@@ -8,7 +9,13 @@ import uvicorn
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(usuarios.router)
 app.include_router(turnos.router)
 
